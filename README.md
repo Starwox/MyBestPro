@@ -3,13 +3,11 @@
 Afin de rejoindre l'équipe de MyBestPro, un test technique m'a été demandé.
 La contrainte était de le faire sous Symfony, j'ai donc décidé d'utiliser Symfony 5.
 
+Environnement de travail: Mac OSX
+
 # Installation
 
-Pour commencer, rendez vous dans le dossier htdocs de votre MAMP.
-
-```bash
-/Applications/MAMP/htdocs/
-```
+Lancer MAMP pour commencer
 
 Cloner le projet
 
