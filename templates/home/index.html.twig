@@ -1,22 +1,68 @@
 {% extends "base.html.twig" %}
 
+        {% block stylesheets %}
+            {{ parent() }}
+        {% endblock %}
+
 {% block body %}
+    <h1>Test technique - MyBestPro</h1>
+
     <div id="tab">
         {{ parent() }}
-        <a href="/task/add">Ajouter une tâche</a>
-        <ul id="navigation">
+        <div id="button">
+            <div id="filter">
+                Ajouter un filtre par statut:
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary {% if filter == "" %}active{% endif %}">
+                        <a href="/" role="button" name="options" id="option1">
+                            Aucun filtre
+                        </a>
+                    </label>
+                    <label class="btn btn-secondary {% if filter == 1 %}active{% endif %}">
+                        <a href="/1" role="button" name="options" id="option2">
+                            A faire
+                        </a>
+                    </label>
+                    <label class="btn btn-secondary {% if filter == 2 %}active{% endif %}">
+                        <a href="/2" role="button" name="options" id="option2">
+                            En cours
+                        </a>
+                    </label>
+                    <label class="btn btn-secondary {% if filter == 3 %}active{% endif %}">
+                        <a href="/3" role="button" name="options" id="option2">
+                            Terminée
+                        </a>
+                    </label>
+            <div id="addTask">
+                <a href="/task/add" class="btn btn-outline-success" role="button">Ajouter une tâche</a>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date de création</th>
+                <th scope="col">Statut</th>
+                <th scope="col">Date de modification</th>
+                <th scope="col">Modification</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for item in task %}
-                <li>{{ item.title }} +
-                    {{ item.description }} +
-                    {{ item.status.name }} +
-                    {{ item.createddate.date }}
-                    {% if item.editeddate %}
-                        +
-                    {{ item.editeddate.date }}
-                    {% endif %}
-                    <a href="/task/edit-{{ item.id }}">Modifier la tâche</a>
-                </li>
+            <tr>
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.title }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.createddate.date }}</td>
+                <td>{{ item.status.name }}</td>
+                <td>{% if item.editeddate %}{{ item.editeddate.date }}{% else %}Non Modifié{% endif %}</td>
+                <td><a href="/task/edit-{{ item.id }}">Modifier la tâche</a></td>
+            </tr>
             {% endfor %}
-        </ul>
+            </tbody>
+        </table>
     </div>
 {% endblock %}
