@@ -37,7 +37,11 @@ mybestpro = Nom de la base de donnée
 Il faut créer la base de donnée
 ```bash
 php bin/console doctrine:database:create
+```
 
+Il faut compiler le CSS / JS avec cette commande
+```bash
+yarn encore dev
 ```
 
 Nous pouvons donc démarrer le projet ! (N'oubliez pas de lancer MAMP)
@@ -46,3 +50,4 @@ Nous pouvons donc démarrer le projet ! (N'oubliez pas de lancer MAMP)
 symfony server:start
 ```
 
+Le projet fonctionne !
