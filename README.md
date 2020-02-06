@@ -14,7 +14,7 @@ Pour commencer, rendez vous dans le dossier htdocs de votre MAMP.
 Cloner le projet
 
 ```bash
-git clone https://github.com/Starwox/mybestpro.git
+git clone https://github.com/Starwox/MyBestPro.git
 ```
 
 Une fois le projet récupéré, accéder au projet, et installer les dépendances
