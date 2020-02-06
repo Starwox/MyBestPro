@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div id="tab">
+        {{ parent() }}
+        <a href="/task/add">Ajouter une tâche</a>
+        <ul id="navigation">
+            {% for item in task %}
+                <li>{{ item.title }} +
+                    {{ item.description }} +
+                    {{ item.status.name }} +
+                    {{ item.createddate.date }}
+                    <a href="/task/edit-{{ item.id }}">Modifier la tâche</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
