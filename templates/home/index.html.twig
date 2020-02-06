@@ -10,6 +10,10 @@
                     {{ item.description }} +
                     {{ item.status.name }} +
                     {{ item.createddate.date }}
+                    {% if item.editeddate %}
+                        +
+                    {{ item.editeddate.date }}
+                    {% endif %}
                     <a href="/task/edit-{{ item.id }}">Modifier la tâche</a>
                 </li>
             {% endfor %}

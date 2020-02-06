@@ -37,6 +37,11 @@ class Task
      */
     private $CreatedDate;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $EditedDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Task
     public function setCreatedDate(\DateTimeInterface $CreatedDate): self
     {
         $this->CreatedDate = $CreatedDate;
+
+        return $this;
+    }
+
+    public function getEditedDate(): ?\DateTimeInterface
+    {
+        return $this->EditedDate;
+    }
+
+    public function setEditedDate(?\DateTimeInterface $EditedDate): self
+    {
+        $this->EditedDate = $EditedDate;
 
         return $this;
     }

@@ -19,15 +19,36 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/{filter}",
+     *      name="homepage",
+     *     defaults={"filter" : ""}
+     * )
      */
-    public function home()
+    public function home($filter)
     {
-        $repo = $this->getDoctrine()->getRepository(Task::class);
+        switch ($filter) {
+            case '1':
+                // Filtre "A faire"
+                $task = $this->getDoctrine()->getRepository(Task::class)->findByState(1);
+                break;
+            case '2':
+                // Filtre "En cours"
+                $task = $this->getDoctrine()->getRepository(Task::class)->findByState(2);
+                break;
+            case '3':
+                // Filtre "Terminée"
+                $task = $this->getDoctrine()->getRepository(Task::class)->findByState(3);
+                break;
+
+            default:
+                $task = $this->getDoctrine()->getRepository(Task::class)->sortByDateTime();
+                break;
+
+        }
 
         return $this->render('home/index.html.twig', [
            'controller_name' => "homepage",
-           'task' => $repo->findAll()
+           'task' => $task
         ]);
     }
 
@@ -81,10 +102,10 @@ class HomeController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
 
-            $task->setCreatedDate(new \DateTime('now'));
             $task->setTitle($form->get('title')->getData());
             $task->setDescription($form->get('description')->getData());
             $task->setStatus($form->get('status')->getData());
+            $task->setEditedDate(new \DateTime('now'));
 
             $em->persist($task);
             $em->flush();
