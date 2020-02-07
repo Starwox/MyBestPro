@@ -46,6 +46,13 @@ Une fois la base de données crée, il faut y implenter les migrations.
 php bin/console d:m:m
 ```
 
+J'ai crée une commande pour compléter la table Status
+```bash
+php bin/console app:status
+OR
+php bin/console app:status -f
+```
+
 Il faut compiler le CSS / JS avec cette commande
 ```bash
 yarn encore dev
