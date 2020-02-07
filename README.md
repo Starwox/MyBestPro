@@ -4,6 +4,7 @@ Afin de rejoindre l'équipe de MyBestPro, un test technique m'a été demandé.
 La contrainte était de le faire sous Symfony, j'ai donc décidé d'utiliser Symfony 5.
 
 Environnement de travail: Mac OSX
+Le projet nécessite: Php 7, Symfony 5 et MySQL pour son bon fonctionnement
 
 # Installation
 
