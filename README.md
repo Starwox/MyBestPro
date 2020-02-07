@@ -39,6 +39,11 @@ Il faut créer la base de donnée
 php bin/console doctrine:database:create
 ```
 
+Une fois la base de donnée crée, il faut y implenter les migrations.
+```bash
+php bin/console d:m:m
+```
+
 Il faut compiler le CSS / JS avec cette commande
 ```bash
 yarn encore dev
