@@ -42,6 +42,11 @@ class Task
      */
     private $EditedDate;
 
+    public function __construct()
+    {
+        $this->CreatedDate = new \DateTime('now');
+    }
+
     public function getId(): ?int
     {
         return $this->id;

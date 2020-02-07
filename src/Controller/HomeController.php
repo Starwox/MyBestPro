@@ -70,7 +70,6 @@ class HomeController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
 
-            $task->setCreatedDate(new \DateTime('now'));
             $task->setTitle($form->get('title')->getData());
             $task->setDescription($form->get('description')->getData());
             $task->setStatus($form->get('status')->getData());
