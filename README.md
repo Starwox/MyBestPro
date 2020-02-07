@@ -31,15 +31,15 @@ SQL
 username = Pseudo
 password = Mot de passe
 3306 = Port PhpMyAdmin
-mybestpro = Nom de la base de donnée
+mybestpro = Nom de la base de données
 ```
 
-Il faut créer la base de donnée
+Il faut créer la base de données
 ```bash
 php bin/console doctrine:database:create
 ```
 
-Une fois la base de donnée crée, il faut y implenter les migrations.
+Une fois la base de données crée, il faut y implenter les migrations.
 ```bash
 php bin/console d:m:m
 ```
